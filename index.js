@@ -41,6 +41,7 @@ app.post("/post" , (req , res)=>{
 } )
 
 
+
 app.delete("/delete/:id" , (req , res)=>{
     const {id} = req.params
     let data = fs.readFileSync("./db/auth.json" , "utf-8" )
@@ -48,7 +49,7 @@ app.delete("/delete/:id" , (req , res)=>{
     let dt = datas.filter((d)=>{
         return id != d.id
     })
-    fs.writeFileSync("./db/auth.json" , JSON.stringify([dt]) )
+    fs.writeFileSync("./db/auth.json" , JSON.stringify(dt) )
     res.json({Message:"Deleted successfully"})
 } )
 
